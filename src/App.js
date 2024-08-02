@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Sidebar from './components/sidebar';
+import Navbar from './components/navbar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const DashboardLayout = ({ children }) => {
+    return (
+        <div>
+            <div className="h-full relative">
+                <div className="hidden h-full md:flex md:w-72 md:flex-col md:fixed md:inset-y-0 z-80 bg-gray-600">
+                  <Sidebar />
+
+                </div>
+                <main className="md:pl-72 pb-10">
+                    <Navbar/>
+                    {children}
+                </main>
+            </div>
+        </div>
+    );
 }
 
-export default App;
+export default DashboardLayout;
